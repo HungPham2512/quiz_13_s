@@ -19,7 +19,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
 
 # Tạo thư viện động 'libmyLib.dll' từ các file object
 $(LIB_DIR)/libmyLib.dll: $(OBJS) | $(LIB_DIR)
-	$(CC) -shared -o $(LIB_DIR)/libmyLib.dll $(OBJS) -Wl,--out-implib,$(LIB_DIR)/libmyLib.a
+	$(CC) -shared -o $(LIB_DIR)/libmyLib.dll $(OBJS) 
 
 $(BUILD_DIR):
 	if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
@@ -28,5 +28,5 @@ $(LIB_DIR):
 	if not exist $(LIB_DIR) mkdir $(LIB_DIR)
 
 clean:
-	del /Q $(BUILD_DIR)\*.o main $(LIB_DIR)\*.dll $(LIB_DIR)\*.a
+	del /Q $(BUILD_DIR)\*.o main $(LIB_DIR)\*.dll 
 
