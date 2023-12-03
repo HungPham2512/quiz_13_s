@@ -10,10 +10,14 @@
 int main()
 {
     EmployeeManager employeeManager;
-    
+    int choice;
+    int employeeID;
+    std::string employeeTypeStr;
+    std::shared_ptr<Employee> employee;
+    EmployeeType type;
     while (true)
     {
-        int choice;
+        
         std::cout << "Menu:\n";
         std::cout << "1. Add Employee\n";
         std::cout << "2. Edit Employee\n";
@@ -34,12 +38,12 @@ int main()
         case 1:
         {
             std::cout << "Employee type: EXPERIENCE/FRESHER/INTERN? ";
-            std::string employeeTypeStr;
+            
             std::getline(std::cin, employeeTypeStr);
 
             if (employeeTypeStr == "EXPERIENCE" || employeeTypeStr == "FRESHER" || employeeTypeStr == "INTERN")
             {
-                EmployeeType type;
+                
                 if (employeeTypeStr == "EXPERIENCE")
                     type = EmployeeType::EXPERIENCE;
                 else if (employeeTypeStr == "FRESHER")
@@ -48,7 +52,7 @@ int main()
                     type = EmployeeType::INTERN;
 
                 // Input employee info
-                std::shared_ptr<Employee> employee;
+                
                 employeeManager.inputEmployeeInfo(employeeManager, employee, type);
                 // if (employee)
                 // {
@@ -64,13 +68,13 @@ int main()
 
         case 2:
         {
-            int employeeID;
+            
             std::cout << "Enter the ID of the employee to edit: ";
             std::cin >> employeeID;
             std::cin.ignore(); // Clear newline character 
 
             std::cout << "Employee type to edit: EXPERIENCE/FRESHER/INTERN? ";
-            std::string employeeTypeStr;
+            
             std::getline(std::cin, employeeTypeStr);
 
             if (employeeTypeStr == "EXPERIENCE" || employeeTypeStr == "FRESHER" || employeeTypeStr == "INTERN")
@@ -94,7 +98,7 @@ int main()
 
         case 3:
         {
-            int employeeID;
+            
             std::cout << "Enter the ID of the employee to delete: ";
             std::cin >> employeeID;
             std::cin.ignore(); // Clear newline character 
@@ -129,7 +133,7 @@ int main()
 
         case 8:
         {
-            int employeeID;
+            
             std::cout << "Enter the ID of the employee to find: ";
             std::cin >> employeeID;
             std::cin.ignore(); // Clear newline character 
